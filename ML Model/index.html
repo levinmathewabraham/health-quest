@@ -4,11 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Questionnaire</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="">
+    <style>
+/* General Styling */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #2D5A27;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Question Styling */
+.question {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    color: #4A7856;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2D5A27;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #4A7856;
+}
+
+/* Result Styling */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f3f4f6;
+    color: #333;
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Mental Health Questionnaire</h1>
+        <p>Please rate each statement on a scale of 1 (Strongly Disagree) to 5 (Strongly Agree).</p>
         <form id="questionnaireForm">
             <!-- Question Fields -->
             <div class="question">
