@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Questionnaire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mental Health Questionnaire</h1>
+        <form id="questionnaireForm">
+            <!-- Question Fields -->
+            <div class="question">
+                <label>I often feel stressed or overwhelmed.</label>
+                <input type="number" name="I often feel stressed or overwhelmed." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I am generally satisfied with the quality of my sleep.</label>
+                <input type="number" name="I am generally satisfied with the quality of my sleep." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I have trouble focusing on tasks or staying attentive.</label>
+                <input type="number" name="I have trouble focusing on tasks or staying attentive." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I find it difficult to relax and unwind after a busy day.</label>
+                <input type="number" name="I find it difficult to relax and unwind after a busy day." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I frequently experience feelings of anxiety or worry.</label>
+                <input type="number" name="I frequently experience feelings of anxiety or worry." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I regularly engage in activities that improve my mental well-being (e.g., mindfulness, exercise, journaling).</label>
+                <input type="number" name="I regularly engage in activities that improve my mental well-being (e.g., mindfulness, exercise, journaling)." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I feel connected and supported by the people in my life.</label>
+                <input type="number" name="I feel connected and supported by the people in my life." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I often feel isolated or lonely.</label>
+                <input type="number" name="I often feel isolated or lonely." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I am able to effectively manage my daily stress.</label>
+                <input type="number" name="I am able to effectively manage my daily stress." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I feel confident about handling unexpected challenges.</label>
+                <input type="number" name="I feel confident about handling unexpected challenges." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I tend to overthink situations or events.</label>
+                <input type="number" name="I tend to overthink situations or events." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I feel motivated and energized to complete my daily tasks.</label>
+                <input type="number" name="I feel motivated and energized to complete my daily tasks." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I am comfortable practicing mindfulness or meditation techniques.</label>
+                <input type="number" name="I am comfortable practicing mindfulness or meditation techniques." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I am satisfied with my current mood and emotional state.</label>
+                <input type="number" name="I am satisfied with my current mood and emotional state." min="1" max="5" required>
+            </div>
+            <div class="question">
+                <label>I am interested in learning new techniques to improve my mental health.</label>
+                <input type="number" name="I am interested in learning new techniques to improve my mental health." min="1" max="5" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Result Display -->
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
