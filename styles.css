@@ -1,0 +1,59 @@
+.container {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; /* Ensure container takes full height of the viewport */
+    gap: 80px; /* Space between the avatar and the start button */
+}
+
+/* Breathing circle */
+.breathing-circle {
+    width: 150px; /* Match the width of the avatar */
+    height: 150px; /* Match the height of the avatar */
+    background-color: rgba(0, 123, 255, 0.5); /* Blue with transparency */
+    border-radius: 50%; /* Make the circle round */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it properly */
+    animation: breathe 8s ease-in-out infinite;
+    display: none; /* Hidden initially */
+    animation-play-state: paused; /* Start with animation paused */
+    z-index: 0; /* Ensure it stays behind the avatar */
+}
+
+/* Avatar (using image) */
+.avatar {
+    width: 150px; /* Avatar width */
+    height: 150px; /* Avatar height */
+    background-image: url('./assets/images/peace.png'); /* Path to the image */
+    background-size: contain; /* Ensure the image fits inside the div */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    background-position: center; /* Center the image inside the div */
+    position: relative;
+    z-index: 1; /* Ensure the avatar is above the circle */
+    border-radius: 50%; /* Make avatar round (optional) */
+    margin-top: 60px; /* Adjust this value to move the avatar up or down */
+}
+
+/* Breathing animation */
+@keyframes breathe {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.5); } /* Expand to 1.5x the size */
+}
+
+/* Start button */
+.start-button {
+    margin-top: 60px; /* Adjust this value to move the button further down */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    z-index: 2;
+}
