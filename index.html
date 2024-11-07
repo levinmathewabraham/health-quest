@@ -7,208 +7,260 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="breathing-circle" id="breathingCircle"></div>
-        <div class="avatar"></div>
-        <button class="start-button" onclick="toggleBreathing()">Start</button>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E8F3F1;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html" style="color: #2D5A27;">HealthQuest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>    
+
+    <!-- Hero Section -->
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1 class="display-4" style="color: #2D5A27;">Your Journey to Mental Wellness Starts Here</h1>
+                <p class="lead" style="color: #4A7856;">HealthQuest provides interactive tools and resources to support your mental health journey.</p>
+                <a href="./breathingExercise.html" class="btn btn-lg" style="background-color: #2D5A27; color: white;">Try Breathing Exercise</a>
+            </div>
+            <div class="col-md-6">
+                <img src="./assets/images/img1.jpg" class="img-fluid rounded" alt="Mental Health Illustration">
+            </div>
+        </div>
     </div>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <img src="./assets/images/logo.png" alt="HealthQuest Logo" class="nav-logo">
-            <span>HealthQuest</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Breathing</a></li>
-            <li><a href="#">Meditation</a></li>
-            <li><a href="#">Progress</a></li>
-            <li><a href="#">Profile</a></li>
-        </ul>
-        <div class="nav-profile">
-            <img src="./assets/images/avatar.png" alt="Profile" class="profile-pic">
-            <div class="profile-menu">
-                <span class="username">User Name</span>
-                <button class="logout-btn">Logout</button>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="main-content">
-        <div class="welcome-section">
-            <h1>Welcome to Your Wellness Journey</h1>
-            <p>Take a moment to breathe and find your inner peace</p>
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="signupName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="signupName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="signupEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="signupPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="signupPassword">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        
-        <div class="stats-cards">
-            <div class="stat-card">
-                <i class="fas fa-clock"></i>
-                <h3>Session Time</h3>
-                <p>15 minutes</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-calendar"></i>
-                <h3>Streak</h3>
-                <p>7 days</p>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-star"></i>
-                <h3>Points</h3>
-                <p>2,450</p>
+    </div>
+
+    <!-- About Section -->
+    <section class="py-5" style="background-color: #F8F9FA;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-brain mb-3" style="font-size: 2.5rem; color: #2D5A27;"></i>
+                            <h4>Mental Wellness</h4>
+                            <p>Access expert tips and guidance for maintaining mental health and emotional balance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-wind mb-3" style="font-size: 2.5rem; color: #2D5A27;"></i>
+                            <h4>Breathing Exercises</h4>
+                            <p>Practice guided breathing techniques to reduce stress and anxiety.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-meditation mb-3" style="font-size: 2.5rem; color: #2D5A27;"></i>
+                            <h4>Meditation</h4>
+                            <p>Discover various meditation practices for inner peace and mindfulness.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <style>
-            /* Modern Styling */
-            .navbar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 1rem 2rem;
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 1000;
-            }
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 style="color: #2D5A27;">Interactive Exercises</h2>
+                    <p class="lead">Engage in various activities designed to improve your mental well-being:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Guided breathing exercises for stress relief
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Mindfulness meditation sessions
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Mood tracking and journaling tools
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            Progressive muscle relaxation techniques
+                        </li>
+                    </ul>
+                    <a href="./breathingExercise.html" class="btn btn-success mt-3">Try Breathing Exercise</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="./assets/images/img2.jpeg" alt="" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
 
-            .nav-brand {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                font-size: 1.5rem;
-                font-weight: bold;
-                color: #2c3e50;
-            }
+    <!-- Tips Section -->
+    <section class="py-5" style="background-color: #E8F3F1;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 style="color: #2D5A27;">Daily Mental Health Tips</h2>
+                    <p class="lead">Simple practices for better mental health</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Practice Mindfulness</h5>
+                            <p class="card-text">Take a few minutes each day to be present and observe your thoughts without judgment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Stay Active</h5>
+                            <p class="card-text">Regular physical activity can help reduce stress and improve mood.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Connect with Others</h5>
+                            <p class="card-text">Maintain social connections and reach out to friends and family regularly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Quality Sleep</h5>
+                            <p class="card-text">Prioritize getting adequate sleep to support mental and emotional well-being.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center mb-4" style="color: #2D5A27;">About HealthQuest</h2>
+                <p class="text-muted">HealthQuest is more than just an app - it's your companion in maintaining mental wellness. Through interactive exercises, guided meditation, and personalized recommendations, we help you build healthy mental habits.</p>
+                <p class="text-muted">Our science-backed approach combines traditional mindfulness practices with modern technology to create an engaging and effective mental health platform.</p>
+            </div>
+        </div>
+    </div>
 
-            .nav-logo {
-                height: 40px;
-            }
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-            .nav-links {
-                display: flex;
-                gap: 2rem;
-                list-style: none;
-            }
+    <!-- Footer -->
+    <footer class="footer" style="background-color: #E8F3F1;">
+        <div class="container-fluid py-5 px-5 text-center">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5 style="color: #2D5A27;">HealthQuest</h5>
+                    <small class="text-muted">
+                        Your journey to wellness begins here.
+                    </small>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0 text-center">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">About Us</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Contact</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-decoration-none text-muted me-3">Facebook</a>
+                        <a href="#" class="text-decoration-none text-muted me-3">Twitter</a>
+                        <a href="#" class="text-decoration-none text-muted">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <small class="text-muted">&copy; 2024 HealthQuest. All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-            .nav-links a {
-                text-decoration: none;
-                color: #2c3e50;
-                font-weight: 500;
-                transition: color 0.3s ease;
-            }
-
-            .nav-links a:hover, .nav-links a.active {
-                color: #3498db;
-            }
-
-            .nav-profile {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                cursor: pointer;
-            }
-
-            .profile-pic {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                object-fit: cover;
-            }
-
-            .main-content {
-                margin-top: 80px;
-                padding: 2rem;
-            }
-
-            .welcome-section {
-                text-align: center;
-                margin-bottom: 3rem;
-            }
-
-            .welcome-section h1 {
-                color: #2c3e50;
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .welcome-section p {
-                color: #7f8c8d;
-                font-size: 1.2rem;
-            }
-
-            .stats-cards {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2rem;
-                margin-top: 2rem;
-            }
-
-            .stat-card {
-                background: white;
-                padding: 1.5rem;
-                border-radius: 15px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                text-align: center;
-                transition: transform 0.3s ease;
-            }
-
-            .stat-card:hover {
-                transform: translateY(-5px);
-            }
-
-            .stat-card i {
-                font-size: 2rem;
-                color: #3498db;
-                margin-bottom: 1rem;
-            }
-
-            .stat-card h3 {
-                color: #2c3e50;
-                margin-bottom: 0.5rem;
-            }
-
-            .stat-card p {
-                color: #7f8c8d;
-                font-size: 1.2rem;
-                font-weight: bold;
-            }
-
-            /* Add responsiveness */
-            @media (max-width: 768px) {
-                .nav-links {
-                    display: none;
-                }
-                
-                .welcome-section h1 {
-                    font-size: 2rem;
-                }
-            }
-        </style>
-
-        <!-- Add Font Awesome for icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    </main>
-
-    <script>
-        let isBreathing = false;
-
-        function toggleBreathing() {
-            const breathingCircle = document.getElementById("breathingCircle");
-
-            if (isBreathing) {
-                // Stop the breathing animation and reset
-                breathingCircle.style.animationPlayState = "paused"; // Pause animation
-                breathingCircle.style.display = "none"; // Hide the circle
-            } else {
-                // Start the breathing animation
-                breathingCircle.style.display = "block";
-                breathingCircle.style.animationPlayState = "running"; // Start animation
-            }
-
-            // Toggle the breathing state
-            isBreathing = !isBreathing;
-        }
-    </script>
+    <!-- Bootstrap CSS and JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
