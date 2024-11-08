@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success { color: green; }
+        .error { color: red; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="toggleButton" onclick="toggleForms()">Switch to Login</button>
+
+        <!-- Registration Form -->
+        <div id="registerSection" class="form-section">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <input type="text" id="regUsername" placeholder="Username" required>
+                <input type="email" id="regEmail" placeholder="Email" required>
+                <input type="password" id="regPassword" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+            <div id="registerMessage" class="message"></div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginSection" class="form-section hidden">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div id="loginMessage" class="message"></div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle between forms
+        function toggleForms() {
+            const registerSection = document.getElementById('registerSection');
+            const loginSection = document.getElementById('loginSection');
+            const toggleButton = document.getElementById('toggleButton');
+
+            if (registerSection.classList.contains('hidden')) {
+                registerSection.classList.remove('hidden');
+                loginSection.classList.add('hidden');
+                toggleButton.textContent = 'Switch to Login';
+            } else {
+                registerSection.classList.add('hidden');
+                loginSection.classList.remove('hidden');
+                toggleButton.textContent = 'Switch to Register';
+            }
+        }
+
+        // Registration form handler
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                const userData = {
+                    username: document.getElementById('regUsername').value,
+                    email: document.getElementById('regEmail').value,
+                    password: document.getElementById('regPassword').value
+                };
+
+                const response = await fetch('/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('registerMessage').textContent = data.message;
+                    document.getElementById('registerMessage').className = 'message success';
+                    document.getElementById('registerForm').reset();
+                    
+                    // Switch to login form after successful registration
+                    setTimeout(() => {
+                        toggleForms();
+                    }, 1500);
+                } else {
+                    document.getElementById('registerMessage').textContent = data.message;
+                    document.getElementById('registerMessage').className = 'message error';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('registerMessage').textContent = 'Registration failed';
+                document.getElementById('registerMessage').className = 'message error';
+            }
+        });
+
+        // Login form handler
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                const loginData = {
+                    email: document.getElementById('loginEmail').value,
+                    password: document.getElementById('loginPassword').value
+                };
+
+                console.log('Sending login request:', loginData.email); // Debug log
+
+                const response = await fetch('/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(loginData)
+                });
+
+                const data = await response.json();
+                console.log('Server response:', data); // Debug log
+
+                if (response.ok) {
+                    document.getElementById('loginMessage').textContent = 'Login successful!';
+                    document.getElementById('loginMessage').className = 'message success';
+                    
+                    // Store user data
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    
+                    // Optional: Redirect after successful login
+                    // setTimeout(() => {
+                    //     window.location.href = '/dashboard';
+                    // }, 2000);
+                } else {
+                    document.getElementById('loginMessage').textContent = data.message;
+                    document.getElementById('loginMessage').className = 'message error';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loginMessage').textContent = 'An error occurred during login';
+                document.getElementById('loginMessage').className = 'message error';
+            }
+        });
+    </script>
+</body>
+</html>
